@@ -1,0 +1,50 @@
+
+// 과제2
+
+class Calulator {
+    var num1: Int?
+    var num2: Int?
+    var result: Int?
+    var result2: Double?
+    var resultText: String?
+    
+    init(num1: Int, num2: Int) {
+        self.num1 = num1
+        self.num2 = num2
+    }
+    
+    func add(num1: Int, num2: Int) -> Int {
+        result = num1 + num2
+        return result!
+    }
+    
+    func subtract(num1: Int, num2: Int) -> Int {
+        result = num1 - num2
+        return result!
+    }
+
+    func multiply(num1: Int, num2: Int) -> Int {
+        result = num1 * num2
+        return result!
+    }
+    
+    func divide(num1: Int, num2: Int) -> Double {
+        if (num2 != 0) {
+            result2 = Double(num1) / Double(num2)
+        } else {
+            resultText = "Error : Dived by Zero"
+            print("\(resultText)")
+            result2 = 0.0
+        }
+        return result2!
+    }
+}
+
+var cal = Calulator(num1: 10, num2: 20)
+cal.add(10, num2:20)
+cal.subtract(10, num2: 20)
+cal.multiply(10, num2: 20)
+cal.divide(10, num2: 20)
+
+var cal2 = Calulator(num1: 10, num2: 0)
+cal.divide(10, num2: 0)
