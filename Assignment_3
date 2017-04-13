@@ -1,0 +1,49 @@
+// 과제3
+
+// 마르코님, 아래 논리는 맞는 거 같은데 EXC_BAD_INSTRUCTION 에러가 납니다. 2 차원 어레이 값을 할당하는 부분에서 에러가 나는데 어떻게 고쳐야 할지 도움 부탁드립니다.
+// 옛날 대학교 다닐때 Fortran 또는 Pascal로 아래 문제를 구현햇던 기억이 새록새록 올라옵니다. :-)
+
+func printDiamondByDimension(dimension : Int) {
+    
+    let midIndexDimension = (dimension - 1) / 2
+    
+    var cellValue = [[Character]]()
+    
+    var i2: Int //
+    var k = 0 //
+    
+    for i in 0 ... dimension {
+        
+        for j in 0 ... dimension {
+            
+            k = k + 1
+            if i > midIndexDimension {
+                i2 = i - 2 * k
+            } else {
+                i2 = i
+            }
+            
+            if j >= (midIndexDimension - i2) && j <= (midIndexDimension + i2) {
+                cellValue[i][j] = "1"
+            } else {
+                cellValue[i][j] = "0"
+            }
+            
+            print (cellValue[i][j], terminator: "")
+        }
+        
+        print ("\n")
+    }
+}
+
+// assume that it was verified that dimension is an old number grater than 0
+var dimension: Int = 1
+
+printDiamondByDimension(dimension)
+
+dimension = 3
+printDiamondByDimension(dimension)
+
+dimension = 5
+printDiamondByDimension(dimension)
+
