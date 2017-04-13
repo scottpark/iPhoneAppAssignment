@@ -1,0 +1,46 @@
+// 과제 4 로또번호 생성기 만들기
+
+func selectLottoNumbers(max : Int) -> Set<Int> {
+    
+    var lotto = Set<Int>()
+    var oneLottoNumber : Int
+    
+    while lotto.count < 6 {
+        oneLottoNumber = Int(arc4random_uniform(UInt32(max)))
+        
+        if oneLottoNumber > 0 {
+            lotto.insert(oneLottoNumber)
+        }
+    }
+    
+    return lotto
+}
+
+
+// Get Lotto Numbers from 1..25
+var max = 25
+var thisWeekLotto = Set<Int>()
+
+thisWeekLotto = selectLottoNumbers(max)
+
+print("Lotto Numebers for this week")
+
+for singleLottoNum in thisWeekLotto {
+    print(singleLottoNum, terminator :",")
+}
+print("")
+
+
+// Get Lotto Numbers from 1..50
+max = 50
+thisWeekLotto = Set<Int>()
+
+thisWeekLotto = selectLottoNumbers(max)
+
+print("Lotto Numebers for this week")
+
+for singleLottoNum in thisWeekLotto {
+    print(singleLottoNum, terminator :",")
+}
+print("")
+
