@@ -1,0 +1,68 @@
+// 과제3
+
+func printDiamondByDimension(count : Int) {
+    
+    let dimension = count - 1
+    let midIndexDimension = dimension / 2
+    
+    var cellValue = [[Character]]()
+    var cellValueRow = [Character]()
+    
+    var i2: Int //
+    var k = 0 //
+    
+    // Initialise cellValue array
+    
+    // var cellValuesRow = Array(repeating: "0", count: dimension)
+    for _ in 0 ... dimension {
+        cellValueRow.append("0")
+    }
+    
+    for _ in 0 ... dimension {
+        cellValue.append(cellValueRow)
+    }
+    
+    // Get a value of each cell
+    for i in 0 ... dimension {
+        
+        if i <= midIndexDimension {
+            i2 = i
+        } else {
+            k++
+            i2 = i - 2 * k
+        }
+        
+        for j in 0 ... dimension {
+            
+            if j >= (midIndexDimension - i2) && j <= (midIndexDimension + i2) {
+                cellValue[i][j] = "1"
+            } else {
+                cellValue[i][j] = "0"
+            }
+            
+            print (cellValue[i][j], terminator: "")
+        }
+        
+        print ("")
+    }
+}
+
+
+// assume that it was verified that count is an odd number grater than 0
+var count: Int = 5
+
+printDiamondByDimension(count)
+
+count = 1
+
+printDiamondByDimension(count)
+
+count = 3
+
+printDiamondByDimension(count)
+
+count = 7
+
+printDiamondByDimension(count)
+
+
